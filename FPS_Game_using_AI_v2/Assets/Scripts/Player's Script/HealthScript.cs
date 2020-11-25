@@ -39,14 +39,25 @@ public class HealthScript : MonoBehaviour
 
     }
 
-    public void ApplyDamage(float damage)
+    public void ApplyDamage(float damage)//, string who)
     {
 
         // if we died don't execute the rest of the code
         if (is_Dead)
             return;
-
+        print("APplyDamage nu damage = " + damage);
         health -= damage;
+        print("HHealth = " + health);
+        if (damage == 5)
+        {
+            print("Inside If");
+            player_Stats.Display_HealthStats(health);
+        }
+
+        /*if (damage == 10)
+        {
+
+        }*/
 
         if (is_Player)
         {

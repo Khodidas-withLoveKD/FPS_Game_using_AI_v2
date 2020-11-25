@@ -23,7 +23,7 @@ public class EnemyAttack : MonoBehaviour //vp_DamageHandler
     public float HitAccuracy = 0.5f;
     public float DamagePoints = 2.0f;
 
-    public AudioClip GunSound = null;
+    public AudioSource GunSound = null;
 
     //protected override 
     void Awake()
@@ -75,8 +75,8 @@ public class EnemyAttack : MonoBehaviour //vp_DamageHandler
         /*if (m_Audio != null)
         {
             m_Audio.PlayOneShot(GunSound);
-        }
-        */
+        }*/
+        
         float random = Random.Range(0.0f, 1.0f);
 
         // The higher the accuracy is, the more likely the player will be hit
@@ -86,9 +86,16 @@ public class EnemyAttack : MonoBehaviour //vp_DamageHandler
         if (isHit && Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
         {
             print("Enemy Soldier HIT : " + hit.transform.gameObject.name);
-
+           // print("Damage = " + damage);
             if (hit.transform.tag == Tags.ENEMY_TAG)
             {
+                hit.transform.GetComponent<HealthScript>().ApplyDamage(damage);
+            }
+
+            if (hit.transform.gameObject.name == "Soldier")
+            {
+                print("Do Something");
+               // print("TaG = "+hit.transform.tag);
                 hit.transform.GetComponent<HealthScript>().ApplyDamage(damage);
             }
 
