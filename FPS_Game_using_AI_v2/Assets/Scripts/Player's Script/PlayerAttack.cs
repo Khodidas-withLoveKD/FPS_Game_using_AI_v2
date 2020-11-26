@@ -19,17 +19,6 @@ public class PlayerAttack : MonoBehaviour
 
     private GameObject crosshair;
 
-    /* The below code is for arrow or bow.... that is why I've commented it
-    private bool is_Aiming;
-
-    [SerializeField]
-    private GameObject arrow_Prefab, spear_Prefab;
-
-    [SerializeField]
-    private Transform arrow_Bow_StartPosition;
-    */
-
-
     void Awake()
     {
 

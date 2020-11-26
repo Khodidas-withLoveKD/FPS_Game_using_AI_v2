@@ -87,16 +87,15 @@ public class EnemyAttack : MonoBehaviour //vp_DamageHandler
         {
             print("Enemy Soldier HIT : " + hit.transform.gameObject.name);
            // print("Damage = " + damage);
-            if (hit.transform.tag == Tags.ENEMY_TAG)
+           /* if (hit.transform.tag == Tags.ENEMY_TAG)
             {
                 hit.transform.GetComponent<HealthScript>().ApplyDamage(damage);
             }
-
-            if (hit.transform.gameObject.name == "Soldier")
+           */
+            if (hit.transform.gameObject.name == "Soldier" || hit.transform.tag == Tags.ENEMY_TAG || hit.transform.gameObject.name == "Body" || hit.transform.gameObject.name == "Player")
             {
                 print("Do Something");
-               // print("TaG = "+hit.transform.tag);
-                hit.transform.GetComponent<HealthScript>().ApplyDamage(damage);
+                Player.transform.GetComponent<HealthScript>().ApplyDamage(damage);
             }
 
         }
